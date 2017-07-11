@@ -4,6 +4,15 @@ import java.util.List;
 /**
  * Created by xjwhhh on 2017/7/9.
  */
+
+/**
+ * Reverse digits of an integer.
+ Example1: x = 123, return 321
+ Example2: x = -123, return -321
+ click to show spoilers.
+ Note:
+ The input is assumed to be a 32-bit signed integer. Your function should return 0 when the reversed integer overflows.
+ */
 public class Reverse_Integer {
     //需要判断是否溢出
     public int reverse(int x) {
@@ -54,5 +63,6 @@ public class Reverse_Integer {
         Reverse_Integer reverse_integer=new Reverse_Integer();
         int a=reverse_integer.reverse(10);
         System.out.println(a);
+
     }
 }
