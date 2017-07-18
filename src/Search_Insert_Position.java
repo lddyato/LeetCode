@@ -23,9 +23,9 @@ public class Search_Insert_Position {
             }
         }
         if (ismax) {
-            if(nums[nums.length-1]!=target){
+            if (nums[nums.length - 1] != target) {
                 return nums.length;
-            }else {
+            } else {
                 return nums.length - 1;
             }
         } else {
@@ -43,12 +43,12 @@ public class Search_Insert_Position {
 
     //二分法
     public int searchInsert1(int[] A, int target) {
-        int low = 0, high = A.length-1;
-        while(low<=high){
-            int mid = (low+high)/2;
-            if(A[mid] == target) return mid;
-            else if(A[mid] > target) high = mid-1;
-            else low = mid+1;
+        int low = 0, high = A.length - 1;
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (A[mid] == target) return mid;
+            else if (A[mid] > target) high = mid - 1;
+            else low = mid + 1;
         }
         return low;
     }
