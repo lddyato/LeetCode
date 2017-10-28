@@ -47,20 +47,20 @@ public class Missing_Number {
     //sum，用完整的总和减去已有的得到不存在的
     public int missingNumber2(int[] nums) { //sum
         int len = nums.length;
-        int sum = (0+len)*(len+1)/2;
-        for(int i=0; i<len; i++)
-            sum-=nums[i];
+        int sum = (0 + len) * (len + 1) / 2;
+        for (int i = 0; i < len; i++)
+            sum -= nums[i];
         return sum;
     }
 
     //binary search
     public int missingNumber3(int[] nums) {
         Arrays.sort(nums);//先排序才能用二分搜索
-        int left = 0, right = nums.length, mid= (left + right)/2;
-        while(left<right){
-            mid = (left + right)/2;
-            if(nums[mid]>mid) right = mid;
-            else left = mid+1;
+        int left = 0, right = nums.length, mid = (left + right) / 2;
+        while (left < right) {
+            mid = (left + right) / 2;
+            if (nums[mid] > mid) right = mid;
+            else left = mid + 1;
         }
         return left;
     }

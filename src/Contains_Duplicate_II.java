@@ -23,9 +23,9 @@ public class Contains_Duplicate_II {
 
     public boolean containsNearbyDuplicate1(int[] nums, int k) {
         Set<Integer> set = new HashSet<Integer>();
-        for(int i = 0; i < nums.length; i++){
-            if(i > k) set.remove(nums[i-k-1]);//始终保持set的大小为k+1
-            if(!set.add(nums[i])) return true;//加不进去说明存在一样的值
+        for (int i = 0; i < nums.length; i++) {
+            if (i > k) set.remove(nums[i - k - 1]);//始终保持set的大小为k+1
+            if (!set.add(nums[i])) return true;//加不进去说明存在一样的值
         }
         return false;
     }

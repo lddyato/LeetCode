@@ -4,69 +4,65 @@ import java.util.Set;
 
 /**
  * Given a non-empty array of integers, return the third maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n).
- Example 1:
- Input: [3, 2, 1]
-
- Output: 1
-
- Explanation: The third maximum is 1.
-
- Example 2:
- Input: [1, 2]
-
- Output: 2
-
- Explanation: The third maximum does not exist, so the maximum (2) is returned instead.
-
- Example 3:
- Input: [2, 2, 3, 1]
-
- Output: 1
-
- Explanation: Note that the third maximum here means the third maximum distinct number.
- Both numbers with value 2 are both considered as second maximum.
+ * Example 1:
+ * Input: [3, 2, 1]
+ * <p>
+ * Output: 1
+ * <p>
+ * Explanation: The third maximum is 1.
+ * <p>
+ * Example 2:
+ * Input: [1, 2]
+ * <p>
+ * Output: 2
+ * <p>
+ * Explanation: The third maximum does not exist, so the maximum (2) is returned instead.
+ * <p>
+ * Example 3:
+ * Input: [2, 2, 3, 1]
+ * <p>
+ * Output: 1
+ * <p>
+ * Explanation: Note that the third maximum here means the third maximum distinct number.
+ * Both numbers with value 2 are both considered as second maximum.
  */
 
 public class Third_Maximum_Number {
     public int thirdMax(int[] nums) {
         //先找到最小的作为初始值
-        int min=nums[0];
-        for(int i=0;i<nums.length;i++){
-            if(nums[i]<min){
-                min=nums[i];
+        int min = nums[0];
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] < min) {
+                min = nums[i];
             }
         }
-        int max1=min;
-        int max2=min;
-        int max3=min;
-        int count1=0;
-        int count2=0;
-        int count3=0;
-        for(int i=0;i<nums.length;i++){
-            if(nums[i]==max1||nums[i]==max2||nums[i]==max3){
-            }
-            else if(nums[i]>max1){
-                max3=max2;
-                max2=max1;
-                max1=nums[i];
+        int max1 = min;
+        int max2 = min;
+        int max3 = min;
+        int count1 = 0;
+        int count2 = 0;
+        int count3 = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == max1 || nums[i] == max2 || nums[i] == max3) {
+            } else if (nums[i] > max1) {
+                max3 = max2;
+                max2 = max1;
+                max1 = nums[i];
                 count1++;
-            }
-            else if(nums[i]>max2){
-                max3=max2;
-                max2=nums[i];
+            } else if (nums[i] > max2) {
+                max3 = max2;
+                max2 = nums[i];
                 count2++;
-            }
-            else if(nums[i]>max3){
-                max3=nums[i];
+            } else if (nums[i] > max3) {
+                max3 = nums[i];
                 count3++;
             }
 
         }
         //判断是否存在第三大的
-        if(count1+count2+count3>=2){
+        if (count1 + count2 + count3 >= 2) {
             return max3;
-        }
-        else{
+        } else {
             return max1;
         }
     }
@@ -94,6 +90,7 @@ public class Third_Maximum_Number {
 
     /**
      * PriorityQueue会对入队的元素进行排序，所以在队列顶端的总是最小的元素,但内部的其它元素的顺序却随着元素的减少始终处于变化之中
+     *
      * @param nums
      * @return
      */
