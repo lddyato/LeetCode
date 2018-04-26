@@ -6,7 +6,7 @@
  */
 public class Reverse_Linked_List {
     public ListNode reverseList(ListNode head) {
-    /* iterative solution */
+        /* iterative solution */
         ListNode newHead = null;
         while (head != null) {
             ListNode next = head.next;
@@ -18,7 +18,7 @@ public class Reverse_Linked_List {
     }
 
     public ListNode reverseList1(ListNode head) {
-    /* recursive solution */
+        /* recursive solution */
         return reverseListInt(head, null);
     }
 

@@ -7,6 +7,7 @@ public class Binary_Tree_Paths {
         if (root != null) searchBT(root, "", answer);
         return answer;
     }
+
     private void searchBT(TreeNode root, String path, List<String> answer) {
         if (root.left == null && root.right == null) answer.add(path + root.val);
         if (root.left != null) searchBT(root.left, path + root.val + "->", answer);

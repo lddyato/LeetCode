@@ -57,8 +57,6 @@ public class MinStack {
 //        return 0;
 //    }
 
-
-
     long min;
     Stack<Long> stack;
 
@@ -99,9 +97,6 @@ public class MinStack {
     public int getMin() {
         return (int) min;
     }
-
-
-
 
 }
 

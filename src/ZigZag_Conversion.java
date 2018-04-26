@@ -1,59 +1,59 @@
 /**
  * The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
- *
+ * <p>
  * P   A   H   N
  * A P L S I I G
  * Y   I   R
  * And then read line by line: "PAHNAPLSIIGYIR"
- *
+ * <p>
  * Write the code that will take a string and make this conversion given a number of rows:
- *
+ * <p>
  * string convert(string s, int numRows);
  * Example 1:
- *
+ * <p>
  * Input: s = "PAYPALISHIRING", numRows = 3
  * Output: "PAHNAPLSIIGYIR"
  * Example 2:
- *
+ * <p>
  * Input: s = "PAYPALISHIRING", numRows = 4
  * Output: "PINALSIGYAHRPI"
  * Explanation:
- *
+ * <p>
  * P     I    N
  * A   L S  I G
  * Y A   H R
  * P     I
- *
+ * <p>
  * 之字形转换
  */
 public class ZigZag_Conversion {
     //超时了
     public String convert(String s, int numRows) {
-        if(s.equals("")){
+        if (s.equals("")) {
             return "";
         }
-        if(numRows==1){
+        if (numRows == 1) {
             return s;
         }
-        int length=s.length();
+        int length = s.length();
 
-        int group=length/(2*numRows-2);
-        int leftNum=length-group*(2*numRows-2);
-        int numCols=group*(numRows-1);
+        int group = length / (2 * numRows - 2);
+        int leftNum = length - group * (2 * numRows - 2);
+        int numCols = group * (numRows - 1);
         System.out.println(numCols);
         System.out.println(leftNum);
-        if(leftNum<=numRows){
+        if (leftNum <= numRows) {
             numCols++;
-            System.out.println("111"+numCols);
-        }else{
+            System.out.println("111" + numCols);
+        } else {
             numCols++;
 //            leftNum-=numRows;
-            numCols+=(leftNum-numRows);
-            System.out.println("222"+numCols);
+            numCols += (leftNum - numRows);
+            System.out.println("222" + numCols);
         }
-        int point=0;
-        char[][] array=new char[numRows][numCols];
-        if(group>0) {
+        int point = 0;
+        char[][] array = new char[numRows][numCols];
+        if (group > 0) {
             for (int i = 0; i < group; i++) {
                 for (int row = 0; row < numRows; row++) {
                     array[row][i * (numRows - 1)] = s.charAt(point);
@@ -88,16 +88,16 @@ public class ZigZag_Conversion {
                 }
 
             }
-        }else{
-            for (int row = 0; row < numRows&&row<length; row++) {
-                array[row][ 0] = s.charAt(point);
+        } else {
+            for (int row = 0; row < numRows && row < length; row++) {
+                array[row][0] = s.charAt(point);
                 System.out.println("1" + s.charAt(point));
                 point++;
 
             }
-            if(length>numRows) {
+            if (length > numRows) {
                 System.out.println("555555");
-                for (int j = 1; j <= length-numRows; j++) {
+                for (int j = 1; j <= length - numRows; j++) {
                     array[numRows - 1 - j][j] = s.charAt(point);
                     System.out.println("2" + s.charAt(point));
                     point++;
@@ -105,12 +105,12 @@ public class ZigZag_Conversion {
             }
         }
 
-        StringBuilder stringBuilder=new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
 //        System.out.println(numRows);
 //        System.out.println(numCols);
-        for(int i=0;i<numRows;i++){
-            for(int j=0;j<numCols;j++){
-                if(array[i][j]!='\u0000') {
+        for (int i = 0; i < numRows; i++) {
+            for (int j = 0; j < numCols; j++) {
+                if (array[i][j] != '\u0000') {
                     stringBuilder.append(array[i][j]);
                     System.out.println(array[i][j]);
                 }
@@ -130,7 +130,7 @@ public class ZigZag_Conversion {
         while (i < len) {
             for (int idx = 0; idx < nRows && i < len; idx++) // vertically down
                 sb[idx].append(c[i++]);
-            for (int idx = nRows-2; idx >= 1 && i < len; idx--) // obliquely up
+            for (int idx = nRows - 2; idx >= 1 && i < len; idx--) // obliquely up
                 sb[idx].append(c[i++]);
         }
         for (int idx = 1; idx < sb.length; idx++)
@@ -139,8 +139,8 @@ public class ZigZag_Conversion {
         return sb[0].toString();
     }
 
-    public static void main(String[] args){
-        ZigZag_Conversion zigZag_conversion=new ZigZag_Conversion();
-        zigZag_conversion.convert1("PAYPALISHIRING",5);
+    public static void main(String[] args) {
+        ZigZag_Conversion zigZag_conversion = new ZigZag_Conversion();
+        zigZag_conversion.convert1("PAYPALISHIRING", 5);
     }
 }

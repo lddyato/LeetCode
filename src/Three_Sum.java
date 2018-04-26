@@ -12,7 +12,7 @@ import java.util.*;
  * ]
  */
 
-public class threeSum {
+public class Three_Sum {
 
     //超时，但思路应该是对的，使用了2sum的想法
     //查重思路不好
@@ -91,7 +91,7 @@ public class threeSum {
                 while (lo < hi) {
                     if (num[lo] + num[hi] == sum) {
                         res.add(Arrays.asList(num[i], num[lo], num[hi]));
-                        while (lo < hi && num[lo] == num[lo + 1]) lo++;//再次调过相同值
+                        while (lo < hi && num[lo] == num[lo + 1]) lo++;//再次跳过相同值
                         while (lo < hi && num[hi] == num[hi - 1]) hi--;
                         lo++;
                         hi--;
@@ -104,7 +104,7 @@ public class threeSum {
     }
 
     public static void main(String[] args) {
-        threeSum threeSum = new threeSum();
+        Three_Sum threeSum = new Three_Sum();
         int[] nums = {-1, 0, 1, 2, -1, -4};
         threeSum.threeSum(nums);
     }
