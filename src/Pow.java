@@ -34,7 +34,7 @@ public class Pow {
     public double myPow1(double x, int n) {
         long nn = n;
         return myPow(x,nn);
-    }Spiral Matrix
+    }
 
     private double myPow(double x, long n) {
         if(n==0) return 1;
