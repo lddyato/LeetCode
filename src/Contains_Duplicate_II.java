@@ -35,6 +35,8 @@ public class Contains_Duplicate_II {
         int[] nums = {1, 0, 1, 1};
         int k = 1;
         contains_duplicate_ii.containsNearbyDuplicate(nums, k);
+//        System.out.println((-3)%2);
+//        System.out.println((-2)%2);
     }
 
 }
