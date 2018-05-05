@@ -1,32 +1,32 @@
 /**
  * Given an array of integers nums sorted in ascending order, find the starting and ending position of a given target value.
- *
+ * <p>
  * Your algorithm's runtime complexity must be in the order of O(log n).
- *
+ * <p>
  * If the target is not found in the array, return [-1, -1].
- *
+ * <p>
  * Example 1:
- *
+ * <p>
  * Input: nums = [5,7,7,8,8,10], target = 8
  * Output: [3,4]
  * Example 2:
- *
+ * <p>
  * Input: nums = [5,7,7,8,8,10], target = 6
  * Output: [-1,-1]
  */
 
 public class Search_for_a_Range {
     public int[] searchRange(int[] nums, int target) {
-        int[] result={-1,-1};
-        for(int i=0;i<nums.length;i++){
-            if(nums[i]==target){
-                result[0]=i;
-                int j=i;
-                while(j<nums.length&&nums[j]==target){
+        int[] result = {-1, -1};
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == target) {
+                result[0] = i;
+                int j = i;
+                while (j < nums.length && nums[j] == target) {
                     j++;
                 }
                 j--;
-                result[1]=j;
+                result[1] = j;
                 break;
             }
         }
@@ -34,34 +34,33 @@ public class Search_for_a_Range {
     }
 
     public int[] searchRange1(int[] nums, int target) {
-        int[] result={-1,-1};
-        int start=0;
-        int end=nums.length-1;
+        int[] result = {-1, -1};
+        int start = 0;
+        int end = nums.length - 1;
         while (start <= end) {
             int mid = (start + end) / 2;
-            System.out.println("m"+mid);
-            if (nums[mid] == target){
-                int i=mid;
-                int j=mid;
-                while(i>=start&&nums[i]==target){
+            System.out.println("m" + mid);
+            if (nums[mid] == target) {
+                int i = mid;
+                int j = mid;
+                while (i >= start && nums[i] == target) {
                     i--;
                 }
                 i++;
-                while(j<=end&&nums[j]==target){
+                while (j <= end && nums[j] == target) {
                     j++;
                 }
                 j--;
-                result[0]=i;
-                result[1]=j;
+                result[0] = i;
+                result[1] = j;
                 break;
-            }
-            else if(nums[mid] > target){
-                end=mid-1;
-                System.out.println("e"+end);
-            }else{
+            } else if (nums[mid] > target) {
+                end = mid - 1;
+                System.out.println("e" + end);
+            } else {
 
-                start=mid+1;
-                System.out.println("s"+start);
+                start = mid + 1;
+                System.out.println("s" + start);
             }
         }
         return result;
@@ -75,12 +74,11 @@ public class Search_for_a_Range {
         int hi = nums.length;
 
         while (lo < hi) {
-            int mid = (lo+hi)/2;
+            int mid = (lo + hi) / 2;
             if (nums[mid] > target || (left && target == nums[mid])) {
                 hi = mid;
-            }
-            else {
-                lo = mid+1;
+            } else {
+                lo = mid + 1;
             }
         }
 
@@ -99,14 +97,14 @@ public class Search_for_a_Range {
         }
 
         targetRange[0] = leftIdx;
-        targetRange[1] = extremeInsertionIndex(nums, target, false)-1;
+        targetRange[1] = extremeInsertionIndex(nums, target, false) - 1;
 
         return targetRange;
     }
 
-    public static void main(String[] args){
-        Search_for_a_Range a_range=new Search_for_a_Range();
-        int[] aa={5,7,7,8,8,10};
-        a_range.searchRange1(aa,8);
+    public static void main(String[] args) {
+        Search_for_a_Range a_range = new Search_for_a_Range();
+        int[] aa = {5, 7, 7, 8, 8, 10};
+        a_range.searchRange1(aa, 8);
     }
 }
