@@ -10,23 +10,23 @@ public class Unique_Paths {
         // C = ( (n - k + 1) * (n - k + 2) * ... * n ) / k!
         for (int i = 1; i <= k; i++)
             res = res * (N - k + i) / i;
-        return (int)res;
+        return (int) res;
     }
 
     //动态规划
     public int uniquePaths1(int m, int n) {
         Integer[][] map = new Integer[m][n];
-        for(int i = 0; i<m;i++){
+        for (int i = 0; i < m; i++) {
             map[i][0] = 1;
         }
-        for(int j= 0;j<n;j++){
-            map[0][j]=1;
+        for (int j = 0; j < n; j++) {
+            map[0][j] = 1;
         }
-        for(int i = 1;i<m;i++){
-            for(int j = 1;j<n;j++){
-                map[i][j] = map[i-1][j]+map[i][j-1];
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                map[i][j] = map[i - 1][j] + map[i][j - 1];
             }
         }
-        return map[m-1][n-1];
+        return map[m - 1][n - 1];
     }
 }
